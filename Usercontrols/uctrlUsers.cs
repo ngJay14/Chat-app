@@ -20,6 +20,7 @@ namespace chatApp
         private string _fullname;
         private string _username;
         private Image _ava;
+        private Color _color;
 
         public string Fullname
         {
@@ -37,6 +38,19 @@ namespace chatApp
         { 
             get { return _ava; }
             set { _ava = value; pcAva.Image = value; } 
+        }
+
+        public Color Color
+        { get { return _color; } set { _color = value; } }
+
+        private void uctrlUsers_MouseHover(object sender, EventArgs e)
+        {
+            this.BackColor = _color;
+        }
+
+        private void uctrlUsers_MouseLeave(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Transparent;
         }
     }
 }

@@ -93,9 +93,39 @@ namespace chatApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap banner {
+        internal static System.Drawing.Bitmap banner_login_light1 {
             get {
-                object obj = ResourceManager.GetObject("banner", resourceCulture);
+                object obj = ResourceManager.GetObject("banner_login_light1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap banner_login_light2 {
+            get {
+                object obj = ResourceManager.GetObject("banner_login_light2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap banner_logup_light1 {
+            get {
+                object obj = ResourceManager.GetObject("banner_logup_light1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap banner_logup_light2 {
+            get {
+                object obj = ResourceManager.GetObject("banner_logup_light2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,16 +213,6 @@ namespace chatApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap login_banner {
-            get {
-                object obj = ResourceManager.GetObject("login_banner", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap logo_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("logo-removebg-preview", resourceCulture);
@@ -216,16 +236,6 @@ namespace chatApp.Properties {
         internal static System.Drawing.Bitmap logout_white1 {
             get {
                 object obj = ResourceManager.GetObject("logout_white1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap logup_banner {
-            get {
-                object obj = ResourceManager.GetObject("logup_banner", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

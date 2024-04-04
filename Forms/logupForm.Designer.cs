@@ -31,18 +31,18 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(logupForm));
             this.txtFirstname = new Guna.UI2.WinForms.Guna2TextBox();
-            this.bntSignup = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.btnSignup = new Guna.UI2.WinForms.Guna2Button();
+            this.lbSignup = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtLastname = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtPhonenum = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.butLogin = new System.Windows.Forms.LinkLabel();
+            this.lbQues = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lnkLbLogin = new System.Windows.Forms.LinkLabel();
             this.txtPass = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pcAva = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pcBanner = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
@@ -50,7 +50,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcAva)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcBanner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,32 +76,32 @@
             this.txtFirstname.Size = new System.Drawing.Size(272, 41);
             this.txtFirstname.TabIndex = 1;
             // 
-            // bntSignup
+            // btnSignup
             // 
-            this.bntSignup.BorderRadius = 5;
-            this.bntSignup.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.bntSignup.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.bntSignup.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.bntSignup.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.bntSignup.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.bntSignup.ForeColor = System.Drawing.Color.White;
-            this.bntSignup.Location = new System.Drawing.Point(721, 575);
-            this.bntSignup.Name = "bntSignup";
-            this.bntSignup.Size = new System.Drawing.Size(201, 50);
-            this.bntSignup.TabIndex = 7;
-            this.bntSignup.Tag = "";
-            this.bntSignup.Text = "Sign up";
-            this.bntSignup.Click += new System.EventHandler(this.bntSignup_Click);
+            this.btnSignup.BorderRadius = 5;
+            this.btnSignup.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSignup.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSignup.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSignup.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSignup.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.btnSignup.ForeColor = System.Drawing.Color.White;
+            this.btnSignup.Location = new System.Drawing.Point(726, 575);
+            this.btnSignup.Name = "btnSignup";
+            this.btnSignup.Size = new System.Drawing.Size(201, 50);
+            this.btnSignup.TabIndex = 7;
+            this.btnSignup.Tag = "";
+            this.btnSignup.Text = "Sign up";
+            this.btnSignup.Click += new System.EventHandler(this.bntSignup_Click);
             // 
-            // guna2HtmlLabel1
+            // lbSignup
             // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(775, 123);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(106, 33);
-            this.guna2HtmlLabel1.TabIndex = 0;
-            this.guna2HtmlLabel1.Text = "Sign Up";
+            this.lbSignup.BackColor = System.Drawing.Color.Transparent;
+            this.lbSignup.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSignup.Location = new System.Drawing.Point(775, 123);
+            this.lbSignup.Name = "lbSignup";
+            this.lbSignup.Size = new System.Drawing.Size(106, 33);
+            this.lbSignup.TabIndex = 0;
+            this.lbSignup.Text = "Sign Up";
             // 
             // txtLastname
             // 
@@ -169,27 +169,27 @@
             this.txtEmail.Size = new System.Drawing.Size(272, 41);
             this.txtEmail.TabIndex = 5;
             // 
-            // guna2HtmlLabel2
+            // lbLogupQues
             // 
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(741, 636);
-            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(114, 18);
-            this.guna2HtmlLabel2.TabIndex = 10;
-            this.guna2HtmlLabel2.Text = "Have an account ?";
+            this.lbQues.BackColor = System.Drawing.Color.Transparent;
+            this.lbQues.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbQues.Location = new System.Drawing.Point(741, 636);
+            this.lbQues.Name = "lbLogupQues";
+            this.lbQues.Size = new System.Drawing.Size(114, 18);
+            this.lbQues.TabIndex = 10;
+            this.lbQues.Text = "Have an account ?";
             // 
-            // butLogin
+            // lnkLbLogin
             // 
-            this.butLogin.AutoSize = true;
-            this.butLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butLogin.Location = new System.Drawing.Point(861, 637);
-            this.butLogin.Name = "butLogin";
-            this.butLogin.Size = new System.Drawing.Size(47, 17);
-            this.butLogin.TabIndex = 11;
-            this.butLogin.TabStop = true;
-            this.butLogin.Text = "Log in";
-            this.butLogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.butLogin_LinkClicked);
+            this.lnkLbLogin.AutoSize = true;
+            this.lnkLbLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkLbLogin.Location = new System.Drawing.Point(861, 637);
+            this.lnkLbLogin.Name = "lnkLbLogin";
+            this.lnkLbLogin.Size = new System.Drawing.Size(47, 17);
+            this.lnkLbLogin.TabIndex = 11;
+            this.lnkLbLogin.TabStop = true;
+            this.lnkLbLogin.Text = "Log in";
+            this.lnkLbLogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLbLogin_LinkClicked);
             // 
             // txtPass
             // 
@@ -251,15 +251,16 @@
             this.pcAva.Click += new System.EventHandler(this.pcAva_Click);
             this.pcAva.MouseHover += new System.EventHandler(this.pcAva_MouseHover);
             // 
-            // pictureBox3
+            // pcBanner
             // 
-            this.pictureBox3.BackgroundImage = global::chatApp.Properties.Resources.logup_banner;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(646, 709);
-            this.pictureBox3.TabIndex = 14;
-            this.pictureBox3.TabStop = false;
+            this.pcBanner.BackColor = System.Drawing.Color.Transparent;
+            this.pcBanner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pcBanner.Location = new System.Drawing.Point(0, 0);
+            this.pcBanner.Name = "pcBanner";
+            this.pcBanner.Size = new System.Drawing.Size(646, 709);
+            this.pcBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcBanner.TabIndex = 14;
+            this.pcBanner.TabStop = false;
             // 
             // errorProvider1
             // 
@@ -300,17 +301,17 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1006, 711);
             this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pcBanner);
             this.Controls.Add(this.pcAva);
             this.Controls.Add(this.txtPass);
-            this.Controls.Add(this.butLogin);
-            this.Controls.Add(this.guna2HtmlLabel2);
+            this.Controls.Add(this.lnkLbLogin);
+            this.Controls.Add(this.lbQues);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtPhonenum);
             this.Controls.Add(this.txtLastname);
-            this.Controls.Add(this.guna2HtmlLabel1);
-            this.Controls.Add(this.bntSignup);
+            this.Controls.Add(this.lbSignup);
+            this.Controls.Add(this.btnSignup);
             this.Controls.Add(this.txtFirstname);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -319,10 +320,11 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Log up";
+            this.Load += new System.EventHandler(this.logupForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcAva)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcBanner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -332,17 +334,17 @@
         #endregion
         private System.Windows.Forms.PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2TextBox txtFirstname;
-        private Guna.UI2.WinForms.Guna2Button bntSignup;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2Button btnSignup;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lbSignup;
         private Guna.UI2.WinForms.Guna2TextBox txtLastname;
         private Guna.UI2.WinForms.Guna2TextBox txtPhonenum;
         private Guna.UI2.WinForms.Guna2TextBox txtEmail;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private System.Windows.Forms.LinkLabel butLogin;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lbQues;
+        private System.Windows.Forms.LinkLabel lnkLbLogin;
         private Guna.UI2.WinForms.Guna2TextBox txtPass;
         private Guna.UI2.WinForms.Guna2CirclePictureBox pcAva;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pcBanner;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private Guna.UI2.WinForms.Guna2TextBox txtUsername;

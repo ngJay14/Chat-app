@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.pnTools = new System.Windows.Forms.Panel();
+            this.btnLogout = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnSetting = new Guna.UI2.WinForms.Guna2ImageButton();
             this.pcAva = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnChat = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -47,7 +47,7 @@
             this.pnUsers = new System.Windows.Forms.FlowLayoutPanel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.lbName = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnType = new Guna.UI2.WinForms.Guna2Panel();
             this.btnEmotions = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnVideo = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnImage = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -66,26 +66,40 @@
             this.pcEmo5 = new System.Windows.Forms.PictureBox();
             this.pcEmo2 = new System.Windows.Forms.PictureBox();
             this.pcEmo1 = new System.Windows.Forms.PictureBox();
-            this.pnImage = new System.Windows.Forms.Panel();
-            this.videoPlayer = new AxWMPLib.AxWindowsMediaPlayer();
-            this.pcImageChosen = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pnImagesAndVideos = new System.Windows.Forms.Panel();
+            this.flPnChosenImages = new System.Windows.Forms.FlowLayoutPanel();
             this.pcCloseImagePanel = new System.Windows.Forms.PictureBox();
+            this.flPnChosenVideos = new System.Windows.Forms.FlowLayoutPanel();
             this.pnFile = new System.Windows.Forms.Panel();
             this.btnReturn = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbVideos = new System.Windows.Forms.Label();
             this.flPnVideos = new System.Windows.Forms.FlowLayoutPanel();
             this.flPnImages = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbImages = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnExit = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.panel1.SuspendLayout();
+            this.pnSetting = new System.Windows.Forms.Panel();
+            this.btnSetSave = new Guna.UI2.WinForms.Guna2Button();
+            this.pcDark4 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pcDark3 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pcDark2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pcDark1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pcLight4 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pcLight3 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pcLight2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pcLight1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.lbLanguage = new System.Windows.Forms.Label();
+            this.comBxLanguge = new System.Windows.Forms.ComboBox();
+            this.radBtnLight2 = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.radBtnLight1 = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.pnTools.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcAva)).BeginInit();
             this.pnReceiver.SuspendLayout();
             this.pnSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcCloseSearchPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcReceiver)).BeginInit();
-            this.guna2Panel2.SuspendLayout();
+            this.pnType.SuspendLayout();
             this.pnChat.SuspendLayout();
             this.pnEmotions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcCloseEmoPanel)).BeginInit();
@@ -99,44 +113,52 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcEmo5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcEmo2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcEmo1)).BeginInit();
-            this.pnImage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.videoPlayer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcImageChosen)).BeginInit();
+            this.pnImagesAndVideos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcCloseImagePanel)).BeginInit();
             this.pnFile.SuspendLayout();
+            this.pnSetting.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcDark4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcDark3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcDark2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcDark1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcLight4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcLight3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcLight2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcLight1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnTools
             // 
-            this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.panel1.Controls.Add(this.guna2ImageButton1);
-            this.panel1.Controls.Add(this.btnSetting);
-            this.panel1.Controls.Add(this.pcAva);
-            this.panel1.Controls.Add(this.btnChat);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(75, 663);
-            this.panel1.TabIndex = 0;
+            this.pnTools.BackColor = System.Drawing.Color.DodgerBlue;
+            this.pnTools.Controls.Add(this.btnLogout);
+            this.pnTools.Controls.Add(this.btnSetting);
+            this.pnTools.Controls.Add(this.pcAva);
+            this.pnTools.Controls.Add(this.btnChat);
+            this.pnTools.Location = new System.Drawing.Point(0, 0);
+            this.pnTools.Name = "pnTools";
+            this.pnTools.Size = new System.Drawing.Size(75, 663);
+            this.pnTools.TabIndex = 0;
             // 
-            // guna2ImageButton1
+            // btnLogout
             // 
-            this.guna2ImageButton1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2ImageButton1.Image = global::chatApp.Properties.Resources.logout_white1;
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(0, 233);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(75, 75);
-            this.guna2ImageButton1.TabIndex = 3;
-            this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
+            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogout.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnLogout.HoverState.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnLogout.Image = global::chatApp.Properties.Resources.logout_white1;
+            this.btnLogout.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnLogout.ImageRotate = 0F;
+            this.btnLogout.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnLogout.Location = new System.Drawing.Point(0, 233);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.PressedState.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnLogout.Size = new System.Drawing.Size(75, 75);
+            this.btnLogout.TabIndex = 3;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            this.btnLogout.MouseHover += new System.EventHandler(this.btnLogout_MouseHover);
             // 
             // btnSetting
             // 
-            this.btnSetting.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnSetting.BackColor = System.Drawing.Color.Transparent;
             this.btnSetting.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.btnSetting.HoverState.ImageSize = new System.Drawing.Size(50, 50);
             this.btnSetting.Image = global::chatApp.Properties.Resources.setting_white;
@@ -148,6 +170,8 @@
             this.btnSetting.PressedState.ImageSize = new System.Drawing.Size(50, 50);
             this.btnSetting.Size = new System.Drawing.Size(75, 75);
             this.btnSetting.TabIndex = 2;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
+            this.btnSetting.MouseHover += new System.EventHandler(this.btnSetting_MouseHover);
             // 
             // pcAva
             // 
@@ -169,7 +193,7 @@
             // 
             // btnChat
             // 
-            this.btnChat.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnChat.BackColor = System.Drawing.Color.Transparent;
             this.btnChat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.btnChat.HoverState.ImageSize = new System.Drawing.Size(50, 50);
             this.btnChat.Image = global::chatApp.Properties.Resources.chat_white;
@@ -182,6 +206,7 @@
             this.btnChat.Size = new System.Drawing.Size(75, 75);
             this.btnChat.TabIndex = 0;
             this.btnChat.Click += new System.EventHandler(this.btnChat_Click);
+            this.btnChat.MouseHover += new System.EventHandler(this.btnChat_MouseHover);
             // 
             // pnReceiver
             // 
@@ -192,9 +217,9 @@
             this.pnReceiver.Controls.Add(this.lbFullnameReceiver);
             this.pnReceiver.Controls.Add(this.lbUsernameReceiver);
             this.pnReceiver.Controls.Add(this.pcReceiver);
-            this.pnReceiver.Location = new System.Drawing.Point(380, 25);
+            this.pnReceiver.Location = new System.Drawing.Point(378, 25);
             this.pnReceiver.Name = "pnReceiver";
-            this.pnReceiver.Size = new System.Drawing.Size(754, 76);
+            this.pnReceiver.Size = new System.Drawing.Size(757, 76);
             this.pnReceiver.TabIndex = 0;
             // 
             // pnSearch
@@ -254,6 +279,7 @@
             this.btnSearch.Size = new System.Drawing.Size(30, 30);
             this.btnSearch.TabIndex = 5;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.btnSearch.MouseHover += new System.EventHandler(this.btnSearch_MouseHover);
             // 
             // btnFiles
             // 
@@ -269,6 +295,7 @@
             this.btnFiles.Size = new System.Drawing.Size(30, 30);
             this.btnFiles.TabIndex = 3;
             this.btnFiles.Click += new System.EventHandler(this.btnFiles_Click);
+            this.btnFiles.MouseHover += new System.EventHandler(this.btnFiles_MouseHover);
             // 
             // lbFullnameReceiver
             // 
@@ -294,7 +321,7 @@
             // 
             this.pcReceiver.FillColor = System.Drawing.Color.Gainsboro;
             this.pcReceiver.ImageRotate = 0F;
-            this.pcReceiver.Location = new System.Drawing.Point(9, 5);
+            this.pcReceiver.Location = new System.Drawing.Point(9, 4);
             this.pcReceiver.Name = "pcReceiver";
             this.pcReceiver.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.pcReceiver.Size = new System.Drawing.Size(64, 64);
@@ -307,7 +334,7 @@
             this.pnUsers.BackColor = System.Drawing.Color.White;
             this.pnUsers.Location = new System.Drawing.Point(75, 25);
             this.pnUsers.Name = "pnUsers";
-            this.pnUsers.Size = new System.Drawing.Size(303, 635);
+            this.pnUsers.Size = new System.Drawing.Size(303, 638);
             this.pnUsers.TabIndex = 3;
             // 
             // lbName
@@ -319,18 +346,18 @@
             this.lbName.TabIndex = 5;
             this.lbName.Text = "Chatoo";
             // 
-            // guna2Panel2
+            // pnType
             // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.White;
-            this.guna2Panel2.Controls.Add(this.btnEmotions);
-            this.guna2Panel2.Controls.Add(this.btnVideo);
-            this.guna2Panel2.Controls.Add(this.btnImage);
-            this.guna2Panel2.Controls.Add(this.txtChat);
-            this.guna2Panel2.Controls.Add(this.btnSend);
-            this.guna2Panel2.Location = new System.Drawing.Point(380, 612);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(751, 48);
-            this.guna2Panel2.TabIndex = 1;
+            this.pnType.BackColor = System.Drawing.Color.White;
+            this.pnType.Controls.Add(this.btnEmotions);
+            this.pnType.Controls.Add(this.btnVideo);
+            this.pnType.Controls.Add(this.btnImage);
+            this.pnType.Controls.Add(this.txtChat);
+            this.pnType.Controls.Add(this.btnSend);
+            this.pnType.Location = new System.Drawing.Point(378, 612);
+            this.pnType.Name = "pnType";
+            this.pnType.Size = new System.Drawing.Size(756, 51);
+            this.pnType.TabIndex = 1;
             // 
             // btnEmotions
             // 
@@ -347,6 +374,7 @@
             this.btnEmotions.Size = new System.Drawing.Size(46, 37);
             this.btnEmotions.TabIndex = 4;
             this.btnEmotions.Click += new System.EventHandler(this.btnEmotions_Click);
+            this.btnEmotions.MouseHover += new System.EventHandler(this.btnEmotions_MouseHover);
             // 
             // btnVideo
             // 
@@ -363,6 +391,7 @@
             this.btnVideo.Size = new System.Drawing.Size(46, 37);
             this.btnVideo.TabIndex = 3;
             this.btnVideo.Click += new System.EventHandler(this.btnVideo_Click);
+            this.btnVideo.MouseHover += new System.EventHandler(this.btnVideo_MouseHover);
             // 
             // btnImage
             // 
@@ -379,6 +408,7 @@
             this.btnImage.Size = new System.Drawing.Size(46, 37);
             this.btnImage.TabIndex = 2;
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
+            this.btnImage.MouseHover += new System.EventHandler(this.btnImage_MouseHover);
             // 
             // txtChat
             // 
@@ -404,6 +434,8 @@
             this.txtChat.SelectedText = "";
             this.txtChat.Size = new System.Drawing.Size(524, 36);
             this.txtChat.TabIndex = 1;
+            this.txtChat.TextChanged += new System.EventHandler(this.txtChat_TextChanged);
+            this.txtChat.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtChat_KeyDown);
             // 
             // btnSend
             // 
@@ -420,16 +452,17 @@
             this.btnSend.Size = new System.Drawing.Size(46, 37);
             this.btnSend.TabIndex = 0;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            this.btnSend.MouseHover += new System.EventHandler(this.btnSend_MouseHover);
             // 
             // pnChat
             // 
             this.pnChat.AutoScroll = true;
             this.pnChat.Controls.Add(this.pnEmotions);
-            this.pnChat.Controls.Add(this.pnImage);
+            this.pnChat.Controls.Add(this.pnImagesAndVideos);
             this.pnChat.Controls.Add(this.pnFile);
-            this.pnChat.Location = new System.Drawing.Point(380, 97);
+            this.pnChat.Location = new System.Drawing.Point(378, 97);
             this.pnChat.Name = "pnChat";
-            this.pnChat.Size = new System.Drawing.Size(754, 515);
+            this.pnChat.Size = new System.Drawing.Size(757, 515);
             this.pnChat.TabIndex = 6;
             // 
             // pnEmotions
@@ -446,7 +479,7 @@
             this.pnEmotions.Controls.Add(this.pcEmo5);
             this.pnEmotions.Controls.Add(this.pcEmo2);
             this.pnEmotions.Controls.Add(this.pcEmo1);
-            this.pnEmotions.Location = new System.Drawing.Point(113, 392);
+            this.pnEmotions.Location = new System.Drawing.Point(113, 327);
             this.pnEmotions.Name = "pnEmotions";
             this.pnEmotions.Size = new System.Drawing.Size(524, 50);
             this.pnEmotions.TabIndex = 1;
@@ -574,43 +607,33 @@
             this.pcEmo1.TabIndex = 2;
             this.pcEmo1.TabStop = false;
             // 
-            // pnImage
+            // pnImagesAndVideos
             // 
-            this.pnImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnImage.Controls.Add(this.videoPlayer);
-            this.pnImage.Controls.Add(this.pcImageChosen);
-            this.pnImage.Controls.Add(this.pcCloseImagePanel);
-            this.pnImage.Location = new System.Drawing.Point(113, 444);
-            this.pnImage.Name = "pnImage";
-            this.pnImage.Size = new System.Drawing.Size(103, 71);
-            this.pnImage.TabIndex = 0;
+            this.pnImagesAndVideos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnImagesAndVideos.Controls.Add(this.flPnChosenImages);
+            this.pnImagesAndVideos.Controls.Add(this.pcCloseImagePanel);
+            this.pnImagesAndVideos.Controls.Add(this.flPnChosenVideos);
+            this.pnImagesAndVideos.Location = new System.Drawing.Point(113, 418);
+            this.pnImagesAndVideos.Name = "pnImagesAndVideos";
+            this.pnImagesAndVideos.Size = new System.Drawing.Size(250, 97);
+            this.pnImagesAndVideos.TabIndex = 0;
+            this.pnImagesAndVideos.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.pnImagesAndVideos_PreviewKeyDown);
             // 
-            // videoPlayer
+            // flPnChosenImages
             // 
-            this.videoPlayer.Enabled = true;
-            this.videoPlayer.Location = new System.Drawing.Point(3, 3);
-            this.videoPlayer.Name = "videoPlayer";
-            this.videoPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("videoPlayer.OcxState")));
-            this.videoPlayer.Size = new System.Drawing.Size(71, 63);
-            this.videoPlayer.TabIndex = 1;
-            // 
-            // pcImageChosen
-            // 
-            this.pcImageChosen.BackColor = System.Drawing.Color.Transparent;
-            this.pcImageChosen.FillColor = System.Drawing.Color.Transparent;
-            this.pcImageChosen.ImageRotate = 0F;
-            this.pcImageChosen.Location = new System.Drawing.Point(3, 3);
-            this.pcImageChosen.Name = "pcImageChosen";
-            this.pcImageChosen.Size = new System.Drawing.Size(71, 63);
-            this.pcImageChosen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcImageChosen.TabIndex = 2;
-            this.pcImageChosen.TabStop = false;
+            this.flPnChosenImages.AutoScroll = true;
+            this.flPnChosenImages.BackColor = System.Drawing.Color.Transparent;
+            this.flPnChosenImages.Location = new System.Drawing.Point(3, 3);
+            this.flPnChosenImages.Name = "flPnChosenImages";
+            this.flPnChosenImages.Size = new System.Drawing.Size(216, 90);
+            this.flPnChosenImages.TabIndex = 2;
+            this.flPnChosenImages.WrapContents = false;
             // 
             // pcCloseImagePanel
             // 
             this.pcCloseImagePanel.BackgroundImage = global::chatApp.Properties.Resources.close2;
             this.pcCloseImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pcCloseImagePanel.Location = new System.Drawing.Point(80, 3);
+            this.pcCloseImagePanel.Location = new System.Drawing.Point(225, 3);
             this.pcCloseImagePanel.Name = "pcCloseImagePanel";
             this.pcCloseImagePanel.Size = new System.Drawing.Size(20, 20);
             this.pcCloseImagePanel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -618,17 +641,27 @@
             this.pcCloseImagePanel.TabStop = false;
             this.pcCloseImagePanel.Click += new System.EventHandler(this.pcCloseImagePanel_Click);
             // 
+            // flPnChosenVideos
+            // 
+            this.flPnChosenVideos.AutoScroll = true;
+            this.flPnChosenVideos.BackColor = System.Drawing.Color.Transparent;
+            this.flPnChosenVideos.Location = new System.Drawing.Point(3, 3);
+            this.flPnChosenVideos.Name = "flPnChosenVideos";
+            this.flPnChosenVideos.Size = new System.Drawing.Size(216, 90);
+            this.flPnChosenVideos.TabIndex = 3;
+            this.flPnChosenVideos.WrapContents = false;
+            // 
             // pnFile
             // 
             this.pnFile.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.pnFile.Controls.Add(this.btnReturn);
-            this.pnFile.Controls.Add(this.label2);
+            this.pnFile.Controls.Add(this.lbVideos);
             this.pnFile.Controls.Add(this.flPnVideos);
             this.pnFile.Controls.Add(this.flPnImages);
-            this.pnFile.Controls.Add(this.label1);
+            this.pnFile.Controls.Add(this.lbImages);
             this.pnFile.Location = new System.Drawing.Point(0, 0);
             this.pnFile.Name = "pnFile";
-            this.pnFile.Size = new System.Drawing.Size(754, 515);
+            this.pnFile.Size = new System.Drawing.Size(757, 515);
             this.pnFile.TabIndex = 1;
             // 
             // btnReturn
@@ -646,15 +679,15 @@
             this.btnReturn.TabIndex = 4;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
-            // label2
+            // lbVideos
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(28, 261);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 22);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Videos";
+            this.lbVideos.AutoSize = true;
+            this.lbVideos.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVideos.Location = new System.Drawing.Point(28, 261);
+            this.lbVideos.Name = "lbVideos";
+            this.lbVideos.Size = new System.Drawing.Size(65, 22);
+            this.lbVideos.TabIndex = 3;
+            this.lbVideos.Text = "Videos";
             // 
             // flPnVideos
             // 
@@ -678,15 +711,15 @@
             this.flPnImages.TabIndex = 1;
             this.flPnImages.WrapContents = false;
             // 
-            // label1
+            // lbImages
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(28, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 22);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Images";
+            this.lbImages.AutoSize = true;
+            this.lbImages.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbImages.Location = new System.Drawing.Point(28, 23);
+            this.lbImages.Name = "lbImages";
+            this.lbImages.Size = new System.Drawing.Size(67, 22);
+            this.lbImages.TabIndex = 0;
+            this.lbImages.Text = "Images";
             // 
             // openFileDialog1
             // 
@@ -726,20 +759,205 @@
             this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             this.btnExit.MouseHover += new System.EventHandler(this.btnExit_MouseHover);
             // 
+            // pnSetting
+            // 
+            this.pnSetting.BackColor = System.Drawing.Color.Gainsboro;
+            this.pnSetting.Controls.Add(this.btnSetSave);
+            this.pnSetting.Controls.Add(this.pcDark4);
+            this.pnSetting.Controls.Add(this.pcDark3);
+            this.pnSetting.Controls.Add(this.pcDark2);
+            this.pnSetting.Controls.Add(this.pcDark1);
+            this.pnSetting.Controls.Add(this.pcLight4);
+            this.pnSetting.Controls.Add(this.pcLight3);
+            this.pnSetting.Controls.Add(this.pcLight2);
+            this.pnSetting.Controls.Add(this.pcLight1);
+            this.pnSetting.Controls.Add(this.lbLanguage);
+            this.pnSetting.Controls.Add(this.comBxLanguge);
+            this.pnSetting.Controls.Add(this.radBtnLight2);
+            this.pnSetting.Controls.Add(this.radBtnLight1);
+            this.pnSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnSetting.Location = new System.Drawing.Point(75, 25);
+            this.pnSetting.Name = "pnSetting";
+            this.pnSetting.Size = new System.Drawing.Size(303, 638);
+            this.pnSetting.TabIndex = 7;
+            // 
+            // btnSetSave
+            // 
+            this.btnSetSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSetSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSetSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSetSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSetSave.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnSetSave.ForeColor = System.Drawing.Color.White;
+            this.btnSetSave.Location = new System.Drawing.Point(77, 518);
+            this.btnSetSave.Name = "btnSetSave";
+            this.btnSetSave.Size = new System.Drawing.Size(133, 40);
+            this.btnSetSave.TabIndex = 12;
+            this.btnSetSave.Text = "Save";
+            this.btnSetSave.Click += new System.EventHandler(this.btnSetSave_Click);
+            // 
+            // pcDark4
+            // 
+            this.pcDark4.BackColor = System.Drawing.Color.Transparent;
+            this.pcDark4.BorderRadius = 10;
+            this.pcDark4.ImageRotate = 0F;
+            this.pcDark4.Location = new System.Drawing.Point(208, 236);
+            this.pcDark4.Name = "pcDark4";
+            this.pcDark4.Size = new System.Drawing.Size(20, 100);
+            this.pcDark4.TabIndex = 11;
+            this.pcDark4.TabStop = false;
+            // 
+            // pcDark3
+            // 
+            this.pcDark3.BackColor = System.Drawing.Color.Transparent;
+            this.pcDark3.BorderRadius = 10;
+            this.pcDark3.ImageRotate = 0F;
+            this.pcDark3.Location = new System.Drawing.Point(160, 236);
+            this.pcDark3.Name = "pcDark3";
+            this.pcDark3.Size = new System.Drawing.Size(20, 100);
+            this.pcDark3.TabIndex = 10;
+            this.pcDark3.TabStop = false;
+            // 
+            // pcDark2
+            // 
+            this.pcDark2.BackColor = System.Drawing.Color.Transparent;
+            this.pcDark2.BorderRadius = 10;
+            this.pcDark2.ImageRotate = 0F;
+            this.pcDark2.Location = new System.Drawing.Point(112, 236);
+            this.pcDark2.Name = "pcDark2";
+            this.pcDark2.Size = new System.Drawing.Size(20, 100);
+            this.pcDark2.TabIndex = 9;
+            this.pcDark2.TabStop = false;
+            // 
+            // pcDark1
+            // 
+            this.pcDark1.BackColor = System.Drawing.Color.Transparent;
+            this.pcDark1.BorderRadius = 10;
+            this.pcDark1.ImageRotate = 0F;
+            this.pcDark1.Location = new System.Drawing.Point(66, 236);
+            this.pcDark1.Name = "pcDark1";
+            this.pcDark1.Size = new System.Drawing.Size(20, 100);
+            this.pcDark1.TabIndex = 8;
+            this.pcDark1.TabStop = false;
+            // 
+            // pcLight4
+            // 
+            this.pcLight4.BackColor = System.Drawing.Color.Transparent;
+            this.pcLight4.BorderRadius = 10;
+            this.pcLight4.ImageRotate = 0F;
+            this.pcLight4.Location = new System.Drawing.Point(208, 76);
+            this.pcLight4.Name = "pcLight4";
+            this.pcLight4.Size = new System.Drawing.Size(20, 100);
+            this.pcLight4.TabIndex = 7;
+            this.pcLight4.TabStop = false;
+            // 
+            // pcLight3
+            // 
+            this.pcLight3.BackColor = System.Drawing.Color.Transparent;
+            this.pcLight3.BorderRadius = 10;
+            this.pcLight3.ImageRotate = 0F;
+            this.pcLight3.Location = new System.Drawing.Point(160, 76);
+            this.pcLight3.Name = "pcLight3";
+            this.pcLight3.Size = new System.Drawing.Size(20, 100);
+            this.pcLight3.TabIndex = 6;
+            this.pcLight3.TabStop = false;
+            // 
+            // pcLight2
+            // 
+            this.pcLight2.BackColor = System.Drawing.Color.Transparent;
+            this.pcLight2.BorderRadius = 10;
+            this.pcLight2.ImageRotate = 0F;
+            this.pcLight2.Location = new System.Drawing.Point(112, 76);
+            this.pcLight2.Name = "pcLight2";
+            this.pcLight2.Size = new System.Drawing.Size(20, 100);
+            this.pcLight2.TabIndex = 5;
+            this.pcLight2.TabStop = false;
+            // 
+            // pcLight1
+            // 
+            this.pcLight1.BackColor = System.Drawing.Color.Transparent;
+            this.pcLight1.BorderRadius = 10;
+            this.pcLight1.ImageRotate = 0F;
+            this.pcLight1.Location = new System.Drawing.Point(66, 76);
+            this.pcLight1.Name = "pcLight1";
+            this.pcLight1.Size = new System.Drawing.Size(20, 100);
+            this.pcLight1.TabIndex = 4;
+            this.pcLight1.TabStop = false;
+            // 
+            // lbLanguage
+            // 
+            this.lbLanguage.AutoSize = true;
+            this.lbLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLanguage.Location = new System.Drawing.Point(29, 368);
+            this.lbLanguage.Name = "lbLanguage";
+            this.lbLanguage.Size = new System.Drawing.Size(72, 17);
+            this.lbLanguage.TabIndex = 3;
+            this.lbLanguage.Text = "Language";
+            // 
+            // comBxLanguge
+            // 
+            this.comBxLanguge.FormattingEnabled = true;
+            this.comBxLanguge.Items.AddRange(new object[] {
+            "Vietnamese",
+            "English"});
+            this.comBxLanguge.Location = new System.Drawing.Point(66, 399);
+            this.comBxLanguge.Name = "comBxLanguge";
+            this.comBxLanguge.Size = new System.Drawing.Size(162, 24);
+            this.comBxLanguge.TabIndex = 2;
+            // 
+            // radBtnLight2
+            // 
+            this.radBtnLight2.AutoSize = true;
+            this.radBtnLight2.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.radBtnLight2.CheckedState.BorderThickness = 0;
+            this.radBtnLight2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.radBtnLight2.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.radBtnLight2.CheckedState.InnerOffset = -4;
+            this.radBtnLight2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radBtnLight2.Location = new System.Drawing.Point(29, 200);
+            this.radBtnLight2.Name = "radBtnLight2";
+            this.radBtnLight2.Size = new System.Drawing.Size(108, 21);
+            this.radBtnLight2.TabIndex = 1;
+            this.radBtnLight2.Text = "Light mode 2";
+            this.radBtnLight2.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.radBtnLight2.UncheckedState.BorderThickness = 2;
+            this.radBtnLight2.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.radBtnLight2.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            // 
+            // radBtnLight1
+            // 
+            this.radBtnLight1.AutoSize = true;
+            this.radBtnLight1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.radBtnLight1.CheckedState.BorderThickness = 0;
+            this.radBtnLight1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.radBtnLight1.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.radBtnLight1.CheckedState.InnerOffset = -4;
+            this.radBtnLight1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radBtnLight1.Location = new System.Drawing.Point(29, 39);
+            this.radBtnLight1.Name = "radBtnLight1";
+            this.radBtnLight1.Size = new System.Drawing.Size(108, 21);
+            this.radBtnLight1.TabIndex = 0;
+            this.radBtnLight1.Text = "Light mode 1";
+            this.radBtnLight1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.radBtnLight1.UncheckedState.BorderThickness = 2;
+            this.radBtnLight1.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.radBtnLight1.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1134, 661);
+            this.Controls.Add(this.pnSetting);
             this.Controls.Add(this.pnChat);
             this.Controls.Add(this.pnReceiver);
             this.Controls.Add(this.lbName);
-            this.Controls.Add(this.guna2Panel2);
+            this.Controls.Add(this.pnType);
             this.Controls.Add(this.btnMinimize);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pnUsers);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnTools);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "mainForm";
@@ -750,14 +968,14 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mainForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mainForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mainForm_MouseUp);
-            this.panel1.ResumeLayout(false);
+            this.pnTools.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pcAva)).EndInit();
             this.pnReceiver.ResumeLayout(false);
             this.pnReceiver.PerformLayout();
             this.pnSearch.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pcCloseSearchPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcReceiver)).EndInit();
-            this.guna2Panel2.ResumeLayout(false);
+            this.pnType.ResumeLayout(false);
             this.pnChat.ResumeLayout(false);
             this.pnEmotions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pcCloseEmoPanel)).EndInit();
@@ -771,12 +989,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcEmo5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcEmo2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcEmo1)).EndInit();
-            this.pnImage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.videoPlayer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcImageChosen)).EndInit();
+            this.pnImagesAndVideos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pcCloseImagePanel)).EndInit();
             this.pnFile.ResumeLayout(false);
             this.pnFile.PerformLayout();
+            this.pnSetting.ResumeLayout(false);
+            this.pnSetting.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcDark4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcDark3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcDark2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcDark1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcLight4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcLight3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcLight2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcLight1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -784,7 +1010,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnTools;
         private Guna.UI2.WinForms.Guna2ImageButton btnChat;
         private Guna.UI2.WinForms.Guna2CirclePictureBox pcAva;
         private System.Windows.Forms.FlowLayoutPanel pnUsers;
@@ -794,7 +1020,7 @@
         private Guna.UI2.WinForms.Guna2ImageButton btnMinimize;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbName;
         private Guna.UI2.WinForms.Guna2Panel pnReceiver;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2Panel pnType;
         private Guna.UI2.WinForms.Guna2TextBox txtChat;
         private Guna.UI2.WinForms.Guna2ImageButton btnSend;
         private Guna.UI2.WinForms.Guna2ImageButton btnVideo;
@@ -802,19 +1028,17 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lbFullnameReceiver;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbUsernameReceiver;
         private Guna.UI2.WinForms.Guna2CirclePictureBox pcReceiver;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
+        private Guna.UI2.WinForms.Guna2ImageButton btnLogout;
         private System.Windows.Forms.Panel pnChat;
-        private System.Windows.Forms.Panel pnImage;
+        private System.Windows.Forms.Panel pnImagesAndVideos;
         private System.Windows.Forms.PictureBox pcCloseImagePanel;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private Guna.UI2.WinForms.Guna2PictureBox pcImageChosen;
-        private AxWMPLib.AxWindowsMediaPlayer videoPlayer;
         private Guna.UI2.WinForms.Guna2ImageButton btnFiles;
         private System.Windows.Forms.Panel pnFile;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbVideos;
         private System.Windows.Forms.FlowLayoutPanel flPnVideos;
         private System.Windows.Forms.FlowLayoutPanel flPnImages;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbImages;
         private Guna.UI2.WinForms.Guna2ImageButton btnReturn;
         private System.Windows.Forms.Panel pnEmotions;
         private System.Windows.Forms.PictureBox pcEmo10;
@@ -833,5 +1057,21 @@
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
         private System.Windows.Forms.Panel pnSearch;
         private System.Windows.Forms.PictureBox pcCloseSearchPanel;
+        private System.Windows.Forms.FlowLayoutPanel flPnChosenImages;
+        private System.Windows.Forms.FlowLayoutPanel flPnChosenVideos;
+        private System.Windows.Forms.Panel pnSetting;
+        private Guna.UI2.WinForms.Guna2RadioButton radBtnLight2;
+        private Guna.UI2.WinForms.Guna2RadioButton radBtnLight1;
+        private System.Windows.Forms.Label lbLanguage;
+        private System.Windows.Forms.ComboBox comBxLanguge;
+        private Guna.UI2.WinForms.Guna2PictureBox pcDark4;
+        private Guna.UI2.WinForms.Guna2PictureBox pcDark3;
+        private Guna.UI2.WinForms.Guna2PictureBox pcDark2;
+        private Guna.UI2.WinForms.Guna2PictureBox pcDark1;
+        private Guna.UI2.WinForms.Guna2PictureBox pcLight4;
+        private Guna.UI2.WinForms.Guna2PictureBox pcLight3;
+        private Guna.UI2.WinForms.Guna2PictureBox pcLight2;
+        private Guna.UI2.WinForms.Guna2PictureBox pcLight1;
+        private Guna.UI2.WinForms.Guna2Button btnSetSave;
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AxWMPLib;
+using chatApp.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +23,7 @@ namespace chatApp
         public mainForm()
         {
             InitializeComponent();
+
         }
 
         public string username { get; set; }
@@ -32,9 +35,14 @@ namespace chatApp
         int mValx;
         int mValy;
 
+        dynamic mode;
+        dynamic language;
+
+        // List users in database into users panel
         private void usersItem()
         {
             pnUsers.Controls.Clear();
+
 
             SqlDataAdapter adapter = new SqlDataAdapter("select * from [user]", constring);
 
@@ -58,6 +66,7 @@ namespace chatApp
                             users[i].Ava = new Bitmap(stream);
                             users[i].Username = row["username"].ToString();
                             users[i].Fullname = $"{row["firstname"]} {row["lastname"]}";
+                            users[i].Color = mode.C3;
 
                             users[i].Click += (sender, e) =>
                             {
@@ -84,6 +93,7 @@ namespace chatApp
             }
         }
 
+        // Set movement for this form using mouse
         private void mainForm_MouseDown(object sender, MouseEventArgs e)
         {
             togMove = 1;
@@ -104,19 +114,21 @@ namespace chatApp
             }
         }
 
-        private void guna2CircleButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        // Load form
         private void mainForm_Load(object sender, EventArgs e)
         {
+            pcReceiver.Image = null;
+            lbFullnameReceiver.Text = "Fullname";
+            lbUsernameReceiver.Text = "Username";
 
             this.Controls.Add(pnFile);
-            pnFile.Location = new Point(380, 97);
+            pnFile.Location = new Point(377, 97);
 
             pnReceiver.Controls.Add(pnSearch);
             pnSearch.Location = new Point(377, 21);
+
+            this.Controls.Add(pnImagesAndVideos);
+            pnImagesAndVideos.Location = new Point(493, 515);
 
             pcEmo1.Click += new EventHandler(this.btnSend_Click);
             pcEmo2.Click += new EventHandler(this.btnSend_Click);
@@ -130,6 +142,7 @@ namespace chatApp
             pcEmo10.Click += new EventHandler(this.btnSend_Click);
 
             setControls();
+            setMode();  
 
             SqlConnection con = new SqlConnection(constring);
             con.Open();
@@ -163,46 +176,55 @@ namespace chatApp
             usersItem();
         }
 
+        // Hover avatar picture
         private void pcAva_MouseHover(object sender, EventArgs e)
         {
             toolTip1.Show(fullname, pcAva);
         }
 
+        // Hover exit button
         private void btnExit_MouseHover(object sender, EventArgs e)
         {
             btnExit.BackColor = Color.Red;
         }
 
+        // Hover minimize button
         private void btnMinimize_MouseHover(object sender, EventArgs e)
         {
             btnMinimize.BackColor = Color.Gray;
         }
 
+        // Mouse leave exit button
         private void btnExit_MouseLeave(object sender, EventArgs e)
         {
             btnExit.BackColor = SystemColors.ButtonFace;
         }
 
+        // Mouse leave minimize button
         private void btnMinimize_MouseLeave(object sender, EventArgs e)
         {
             btnMinimize.BackColor= SystemColors.ButtonFace;
         }
 
+        // Exit button click
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        // Minimized button click
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
+        // Send button click
         private void btnSend_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(constring);
+            con.Open();
 
-            if (txtChat.Text != "" && pcReceiver.Image != null && videoPlayer.URL == "" && pcImageChosen.Image == null)
+            if (!string.Equals(txtChat.Text, "") && pcReceiver.Image != null && flPnChosenVideos.Controls.Count == 0 && flPnChosenImages.Controls.Count == 0)
             {
                 string q = "insert into [chat](sender, receiver, message, time)values(@sender, @receiver, @message, @time)";
 
@@ -211,46 +233,52 @@ namespace chatApp
                 cmd.Parameters.AddWithValue("@receiver", lbUsernameReceiver.Text);
                 cmd.Parameters.AddWithValue("@message", txtChat.Text);
                 cmd.Parameters.AddWithValue("@time", DateTime.Now);
-                con.Open();
+
                 cmd.ExecuteNonQuery();
 
                 setControls();
                 messageChat();
             }
-            else if (pcImageChosen.Image != null && pcReceiver.Image != null && txtChat.Text == "" && videoPlayer.URL == "")
+            else if (flPnChosenImages.Controls.Count > 0 && pcReceiver.Image != null && txtChat.Text == "" && flPnChosenVideos.Controls.Count == 0 && pnEmotions.Visible == false)
             {
-                MemoryStream meme = new MemoryStream();
-                pcImageChosen.Image.Save(meme, pcImageChosen.Image.RawFormat);
-
+                Console.Write("true");
                 string q = "insert into [chat](sender, receiver, image, time)values(@sender, @receiver, @image, @time)";
 
-                SqlCommand cmd = new SqlCommand(q, con);
-                cmd.Parameters.AddWithValue("@sender", username);
-                cmd.Parameters.AddWithValue("@receiver", lbUsernameReceiver.Text);
-                cmd.Parameters.AddWithValue("@image", meme.ToArray());
-                cmd.Parameters.AddWithValue("@time", DateTime.Now);
-                con.Open();
-                cmd.ExecuteNonQuery();
+                foreach (PictureBox pic in flPnChosenImages.Controls)
+                {
+                    MemoryStream meme = new MemoryStream();
+                    pic.Image.Save(meme, pic.Image.RawFormat);
 
+                    SqlCommand cmd = new SqlCommand(q, con);
+                    cmd.Parameters.AddWithValue("@sender", username);
+                    cmd.Parameters.AddWithValue("@receiver", lbUsernameReceiver.Text);
+                    cmd.Parameters.AddWithValue("@image", meme.ToArray());
+                    cmd.Parameters.AddWithValue("@time", DateTime.Now);
+
+                    cmd.ExecuteNonQuery();
+                }
                 setControls();
                 messageChat();
             }
-            else if (videoPlayer.URL != "" && pcImageChosen.Image == null && txtChat.Text == "")
+            else if (flPnChosenVideos.Controls.Count > 0 && flPnChosenImages.Controls.Count == 0 && txtChat.Text == "" && pnEmotions.Visible == false)
             {
                 string q = "insert into [chat](sender, receiver, video, time)values(@sender, @receiver, @video, @time)";
 
-                SqlCommand cmd = new SqlCommand(q, con);
-                cmd.Parameters.AddWithValue("@sender", username);
-                cmd.Parameters.AddWithValue("@receiver", lbUsernameReceiver.Text);
-                cmd.Parameters.AddWithValue("@video", videoPlayer.URL);
-                cmd.Parameters.AddWithValue("@time", DateTime.Now);
-                con.Open();
-                cmd.ExecuteNonQuery();
+                foreach (uctrlVideos vid in flPnChosenVideos.Controls)
+                {
+                    SqlCommand cmd = new SqlCommand(q, con);
+                    cmd.Parameters.AddWithValue("@sender", username);
+                    cmd.Parameters.AddWithValue("@receiver", lbUsernameReceiver.Text);
+                    cmd.Parameters.AddWithValue("@video", vid.VidPath);
+                    cmd.Parameters.AddWithValue("@time", DateTime.Now);
+
+                    cmd.ExecuteNonQuery();
+                }
 
                 setControls();
                 messageChat();
             }
-            else if (videoPlayer.URL == "" && pcImageChosen.Image == null && txtChat.Text == "" && pnEmotions.Visible == true)
+            else if (flPnChosenVideos.Controls.Count == 0 && flPnChosenImages.Controls.Count == 0 && txtChat.Text == "" && pnEmotions.Visible == true)
             {
                 PictureBox icon = (PictureBox) sender;
                 MemoryStream meme = new MemoryStream();
@@ -263,7 +291,7 @@ namespace chatApp
                 cmd.Parameters.AddWithValue("@receiver", lbUsernameReceiver.Text);
                 cmd.Parameters.AddWithValue("@icon", meme.ToArray());
                 cmd.Parameters.AddWithValue("@time", DateTime.Now);
-                con.Open();
+
                 cmd.ExecuteNonQuery();
 
                 setControls();
@@ -273,6 +301,7 @@ namespace chatApp
             con.Close();
         }
 
+        // Show message in chat panel
         private void messageChat()
         {
             int prey_ctrlMessage = 0;
@@ -424,7 +453,8 @@ namespace chatApp
             }
         }
 
-        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        // Logout button click
+        private void btnLogout_Click(object sender, EventArgs e)
         {
             username = null;
             fullname = null;
@@ -434,40 +464,60 @@ namespace chatApp
             login.Show();
         }
 
+        // Image button click
         private void btnImage_Click(object sender, EventArgs e)
         {
             if (pcReceiver.Image != null)
             {
-                this.Controls.Add(pnImage);
-
-                pnImage.Location = new Point(493, 541);
-                pnImage.Controls.Add(pcImageChosen);
-                pnImage.Controls.Add(pcCloseImagePanel);
+                pnImagesAndVideos.Controls.Add(flPnChosenImages);
+                flPnChosenImages.Location = new Point(3, 3);
+                pnImagesAndVideos.Controls.Add(pcCloseImagePanel);
 
                 openFileDialog1.Filter = "Select image(*.jpg; *.png; *.gif)|*.jpg; *.png; *.gif";
+                openFileDialog1.Multiselect = true;
+
 
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    pcImageChosen.Image = System.Drawing.Image.FromFile(openFileDialog1.FileName);
-                    pcImageChosen.Visible = true;
-                    videoPlayer.Visible = false;
-                    pnImage.Visible = true;
-                    pnImage.BringToFront();
+                    foreach(String filePath in openFileDialog1.FileNames)
+                    {
+                        PictureBox pictureBox = new PictureBox();
+                        pictureBox.Size = new Size(80, 80);
+                        pictureBox.Image = System.Drawing.Image.FromFile(filePath);
+                        pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+
+                        flPnChosenImages.Controls.Add(pictureBox);
+                    }
+
+
+                    flPnChosenImages.Visible = true;
+                    flPnChosenVideos.Visible = false;
+                    pnImagesAndVideos.Visible = true;
+
+                    pnImagesAndVideos.BringToFront();
+                    pnImagesAndVideos.Focus();
                 }
                 else
-                    pnImage.Visible = false;
+                {
+                    flPnImages.Controls.Clear();
+                    pnImagesAndVideos.Visible = false;
+                }
             }
         }
 
+        // Set controls for this form
         private void setControls()
         {
-            videoPlayer.URL = "";
-            pcImageChosen.Image = null;
-            pnImage.Visible = false;
+            flPnChosenVideos.Controls.Clear();
+            flPnChosenImages.Controls.Clear();
+
+            pnImagesAndVideos.Visible = false;
             pnEmotions.Visible = false;
             pnFile.Visible = false;
             pnChat.Visible = true;
             pnSearch.Visible = false;
+            pnSetting.Visible = false;
+            pnUsers.Visible = true;
 
             pnChat.Controls.Clear();
             flPnImages.Controls.Clear();
@@ -476,43 +526,57 @@ namespace chatApp
             txtChat.Clear();
         }
 
+
+        // Close image panel click
         private void pcCloseImagePanel_Click(object sender, EventArgs e)
         {
-            setControls();
+            flPnChosenVideos.Controls.Clear();
+            flPnChosenImages.Controls.Clear();
+
+            pnImagesAndVideos.Visible = false;
         }
 
+        // Vidoe button click
         private void btnVideo_Click(object sender, EventArgs e)
         {
-            pnImage.Controls.Clear();
+            pnImagesAndVideos.Controls.Clear();
             if (pcReceiver.Image != null)
             {
-                this.Controls.Add(pnImage);
-
-                pnImage.Location = new Point(493, 541);
-                pnImage.Controls.Add(pcCloseImagePanel);
-                pnImage.Controls.Add(videoPlayer);
+                pnImagesAndVideos.Controls.Add(flPnChosenVideos);
+                flPnChosenVideos.Location = new Point(3, 3);
+                pnImagesAndVideos.Controls.Add(pcCloseImagePanel);
 
                 openFileDialog1.Filter = "Select video(*.mp4)|*.mp4";
+                openFileDialog1.Multiselect = true;
 
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    videoPlayer.uiMode = "none";
-                    videoPlayer.URL = openFileDialog1.FileName;
+                    foreach (String filePath in openFileDialog1.FileNames)
+                    {
+                        uctrlVideos vid = new uctrlVideos();
 
-                    pnImage.Visible = true;
-                    pcImageChosen.Visible = false;
-                    videoPlayer.Visible = true;
+                        vid.VidPath = filePath;
+                        vid.minimize(80, 80, "none");
 
-                    pnImage.BringToFront();
+                        flPnChosenVideos.Controls.Add(vid);
+                    }
+
+                    pnImagesAndVideos.Visible = true;
+                    flPnChosenImages.Visible = false;
+                    flPnChosenVideos.Visible = true;
+
+                    pnImagesAndVideos.BringToFront();
+                    pnImagesAndVideos.Focus();
                 }
                 else
-                    pnImage.Visible = false;
-
-                pnImage.BringToFront();
-
+                {
+                    flPnVideos.Controls.Clear();
+                    pnImagesAndVideos.Visible = false;
+                }
             }
         }
 
+        // Sent files button click
         private void btnFiles_Click(object sender, EventArgs e)
         {
             setControls();
@@ -557,17 +621,24 @@ namespace chatApp
             }
         }
 
+        // Chat button click
         private void btnChat_Click(object sender, EventArgs e)
         {
             pnChat.Visible = true;
+            pnUsers.Visible = true;
+
+            pnUsers.BringToFront();
+            pnChat.BringToFront();
         }
 
+        // Sent files return button click
         private void btnReturn_Click(object sender, EventArgs e)
         {
             setControls();
             messageChat();
         }
 
+        // Emotions button click
         private void btnEmotions_Click(object sender, EventArgs e)
         {
             if (pcReceiver.Image != null)
@@ -581,11 +652,13 @@ namespace chatApp
             }
         }
 
+        // Close emotions panel click
         private void pcCloseEmoPanel_Click(object sender, EventArgs e)
         {
             pnEmotions.Visible = false;
         }
 
+        // Message search button click
         private void btnSearch_Click(object sender, EventArgs e)
         {
             int count = 0;
@@ -608,7 +681,7 @@ namespace chatApp
                         }
                     }
 
-                    if (count == 0) MessageBox.Show("Message not found !");
+                    if (count == 0) MessageBox.Show(language.mainMess2);
                 }
                 else
                 {
@@ -618,6 +691,7 @@ namespace chatApp
             }    
         }
 
+        // Close search panel click
         private void pcCloseSearchPanel_Click(object sender, EventArgs e)
         {
             txtSearch.Clear();
@@ -636,6 +710,200 @@ namespace chatApp
                     uctrlMessTextRec messRec = ctl as uctrlMessTextRec;
                     messRec.unSearchMess();
                 }
+            }
+        }
+
+        // Check setting from database
+        private void setMode()
+        {
+            toolTip1.RemoveAll();
+            
+            SqlDataAdapter adapter = new SqlDataAdapter("select * from [setting]", constring);
+
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+
+            if (dt != null)
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        // Check uimode
+                        if (row["uimode"].ToString() == "light1")
+                        {
+                            mode = new lightmode1();
+                            radBtnLight1.Checked = true;
+                        }
+                        else
+                        {
+                            mode = new lightmode2();
+                            radBtnLight2.Checked = true;
+                        }
+
+                        // Check language
+                        if (row["language"].ToString() == "English")
+                        {
+                            language = new english();
+                            comBxLanguge.SelectedIndex = 1;
+                        }
+                        else
+                        {
+                            language = new vietnamese();
+                            comBxLanguge.SelectedIndex = 0;
+                        }
+                    }
+                }
+            }
+
+
+            lightmode1 light = new lightmode1();
+            lightmode2 dark = new lightmode2();
+
+            // Set coloof panels
+            pnTools.BackColor = mode.C1;
+            pnUsers.BackColor = mode.C2;
+            pnReceiver.BackColor = mode.C2;
+            pnType.BackColor = mode.C2;
+            pnChat.BackColor = mode.C3;
+            pnFile.BackColor = mode.C3;
+            btnSetSave.FillColor = mode.C1;
+
+            // Set color of button in pnType
+            btnSend.BackColor = mode.C1;
+            btnEmotions.BackColor = mode.C4;
+            btnImage.BackColor = mode.C4;
+            btnVideo.BackColor = mode.C4;
+
+            // Set control of setting panel
+            pcLight1.FillColor = light.C1;
+            pcLight2.FillColor = light.C2;
+            pcLight3.FillColor = light.C3;
+            pcLight4.FillColor = light.C4;
+
+            pcDark1.FillColor = dark.C1;
+            pcDark2.FillColor = dark.C2;
+            pcDark3.FillColor = dark.C3;
+            pcDark4.FillColor = dark.C4;
+
+            // Set language for controls in this form
+            radBtnLight1.Text = language.lightMode1;
+            radBtnLight2.Text = language.lightMode2;
+            lbLanguage.Text = language.lbLanguage;
+
+            lbImages.Text = language.lbImage;
+            lbVideos.Text = language.lbVideo;
+
+            lbUsernameReceiver.Text = language.lbUsernameRec;
+            lbFullnameReceiver.Text = language.lbFullnameRec;
+            btnSetSave.Text = language.btnSetSave;
+            txtChat.PlaceholderText = language.txtMess;
+            txtSearch.PlaceholderText = language.txtSearch;
+        }
+
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            pnSetting.Visible = true;
+            pnUsers.Visible = false;
+
+            pnSetting.BringToFront();
+        }
+
+        private void btnSetSave_Click(object sender, EventArgs e)
+        {
+            string lang = comBxLanguge.SelectedItem.ToString();
+
+            string uimode;
+            if (radBtnLight1.Checked) uimode = "light1";
+            else uimode = "light2";
+
+            SqlConnection con = new SqlConnection(constring);
+            con.Open();
+
+            string q = "update [setting]" +
+                "set uimode=@uimode, language=@language";
+
+            SqlCommand cmd = new SqlCommand(q, con);
+            cmd.Parameters.AddWithValue("@uimode", uimode);
+            cmd.Parameters.AddWithValue("@language", lang);
+
+            cmd.ExecuteNonQuery();
+
+            MessageBox.Show(language.mainMess1);
+
+            mainForm_Load(sender, e);
+        }
+
+        private void btnChat_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show(language.tooltipBtnMessage, btnChat);
+        }
+
+        private void btnSetting_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show(language.tooltipBtnSetting, btnSetting);
+        }
+
+        private void btnLogout_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show(language.tooltipBtnLogout, btnLogout);
+        }
+
+        private void btnSearch_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show(language.tooltipSearch, btnSearch);
+        }
+
+        private void btnFiles_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show(language.tooltipFile, btnFiles);
+        }
+
+        private void btnVideo_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show(language.tooltipVideo, btnVideo);
+        }
+
+        private void btnImage_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show(language.tooltipImage, btnImage);
+        }
+
+        private void btnEmotions_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show(language.tooltipEmo, btnEmotions);
+        }
+
+        private void btnSend_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show(language.tooltipSend, btnSend);
+        }
+
+        private void pnImagesAndVideos_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSend_Click(sender, e);
+            }
+        }
+
+        private void txtChat_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSend_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.ShiftKey)
+            {
+                txtChat.AppendText(Environment.NewLine);
+            }
+        }
+
+        private void txtChat_TextChanged(object sender, EventArgs e)
+        {
+            if (txtChat.Text == Environment.NewLine)
+            {
+                txtChat.Clear();
             }
         }
     }

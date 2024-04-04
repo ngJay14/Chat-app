@@ -105,120 +105,124 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="uctrlImage.cs">
+    <Compile Include="Classes\english.cs" />
+    <Compile Include="Classes\lightmode2.cs" />
+    <Compile Include="Classes\lightmode1.cs" />
+    <Compile Include="Classes\vietnamese.cs" />
+    <Compile Include="Usercontrols\uctrlImage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="uctrlImage.Designer.cs">
+    <Compile Include="Usercontrols\uctrlImage.Designer.cs">
       <DependentUpon>uctrlImage.cs</DependentUpon>
     </Compile>
-    <Compile Include="uctrlMessIconRec.cs">
+    <Compile Include="Usercontrols\uctrlMessIconRec.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="uctrlMessIconRec.Designer.cs">
+    <Compile Include="Usercontrols\uctrlMessIconRec.Designer.cs">
       <DependentUpon>uctrlMessIconRec.cs</DependentUpon>
     </Compile>
-    <Compile Include="uctrlMessIconSen.cs">
+    <Compile Include="Usercontrols\uctrlMessIconSen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="uctrlMessIconSen.Designer.cs">
+    <Compile Include="Usercontrols\uctrlMessIconSen.Designer.cs">
       <DependentUpon>uctrlMessIconSen.cs</DependentUpon>
     </Compile>
-    <Compile Include="uctrlMessImageRec.cs">
+    <Compile Include="Usercontrols\uctrlMessImageRec.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="uctrlMessImageRec.Designer.cs">
+    <Compile Include="Usercontrols\uctrlMessImageRec.Designer.cs">
       <DependentUpon>uctrlMessImageRec.cs</DependentUpon>
     </Compile>
-    <Compile Include="uctrlMessImageSen.cs">
+    <Compile Include="Usercontrols\uctrlMessImageSen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="uctrlMessImageSen.Designer.cs">
+    <Compile Include="Usercontrols\uctrlMessImageSen.Designer.cs">
       <DependentUpon>uctrlMessImageSen.cs</DependentUpon>
     </Compile>
-    <Compile Include="uctrlMessTextRec.cs">
+    <Compile Include="Usercontrols\uctrlMessTextRec.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="uctrlMessTextRec.Designer.cs">
+    <Compile Include="Usercontrols\uctrlMessTextRec.Designer.cs">
       <DependentUpon>uctrlMessTextRec.cs</DependentUpon>
     </Compile>
-    <Compile Include="uctrlMessTextSen.cs">
+    <Compile Include="Usercontrols\uctrlMessTextSen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="uctrlMessTextSen.Designer.cs">
+    <Compile Include="Usercontrols\uctrlMessTextSen.Designer.cs">
       <DependentUpon>uctrlMessTextSen.cs</DependentUpon>
     </Compile>
-    <Compile Include="loginForm.cs">
+    <Compile Include="Forms\loginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="loginForm.Designer.cs">
+    <Compile Include="Forms\loginForm.Designer.cs">
       <DependentUpon>loginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="logupForm.cs">
+    <Compile Include="Forms\logupForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="logupForm.Designer.cs">
+    <Compile Include="Forms\logupForm.Designer.cs">
       <DependentUpon>logupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="mainForm.cs">
+    <Compile Include="Forms\mainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="mainForm.Designer.cs">
+    <Compile Include="Forms\mainForm.Designer.cs">
       <DependentUpon>mainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="uctrlMessVideoRec.cs">
+    <Compile Include="Usercontrols\uctrlMessVideoRec.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="uctrlMessVideoRec.Designer.cs">
+    <Compile Include="Usercontrols\uctrlMessVideoRec.Designer.cs">
       <DependentUpon>uctrlMessVideoRec.cs</DependentUpon>
     </Compile>
-    <Compile Include="uctrlMessVideoSen.cs">
+    <Compile Include="Usercontrols\uctrlMessVideoSen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="uctrlMessVideoSen.Designer.cs">
+    <Compile Include="Usercontrols\uctrlMessVideoSen.Designer.cs">
       <DependentUpon>uctrlMessVideoSen.cs</DependentUpon>
     </Compile>
-    <Compile Include="uctrlUsers.cs">
+    <Compile Include="Usercontrols\uctrlUsers.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="uctrlUsers.Designer.cs">
+    <Compile Include="Usercontrols\uctrlUsers.Designer.cs">
       <DependentUpon>uctrlUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="uctrlVideos.cs">
+    <Compile Include="Usercontrols\uctrlVideos.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="uctrlVideos.Designer.cs">
+    <Compile Include="Usercontrols\uctrlVideos.Designer.cs">
       <DependentUpon>uctrlVideos.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="uctrlImage.resx">
+    <EmbeddedResource Include="Usercontrols\uctrlImage.resx">
       <DependentUpon>uctrlImage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="uctrlMessIconRec.resx">
+    <EmbeddedResource Include="Usercontrols\uctrlMessIconRec.resx">
       <DependentUpon>uctrlMessIconRec.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="uctrlMessIconSen.resx">
+    <EmbeddedResource Include="Usercontrols\uctrlMessIconSen.resx">
       <DependentUpon>uctrlMessIconSen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="uctrlMessImageRec.resx">
+    <EmbeddedResource Include="Usercontrols\uctrlMessImageRec.resx">
       <DependentUpon>uctrlMessImageRec.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="uctrlMessImageSen.resx">
+    <EmbeddedResource Include="Usercontrols\uctrlMessImageSen.resx">
       <DependentUpon>uctrlMessImageSen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="uctrlMessTextRec.resx">
+    <EmbeddedResource Include="Usercontrols\uctrlMessTextRec.resx">
       <DependentUpon>uctrlMessTextRec.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="uctrlMessTextSen.resx">
+    <EmbeddedResource Include="Usercontrols\uctrlMessTextSen.resx">
       <DependentUpon>uctrlMessTextSen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="loginForm.resx">
+    <EmbeddedResource Include="Forms\loginForm.resx">
       <DependentUpon>loginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="logupForm.resx">
+    <EmbeddedResource Include="Forms\logupForm.resx">
       <DependentUpon>logupForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="mainForm.resx">
+    <EmbeddedResource Include="Forms\mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -231,16 +235,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="uctrlMessVideoRec.resx">
+    <EmbeddedResource Include="Usercontrols\uctrlMessVideoRec.resx">
       <DependentUpon>uctrlMessVideoRec.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="uctrlMessVideoSen.resx">
+    <EmbeddedResource Include="Usercontrols\uctrlMessVideoSen.resx">
       <DependentUpon>uctrlMessVideoSen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="uctrlUsers.resx">
+    <EmbeddedResource Include="Usercontrols\uctrlUsers.resx">
       <DependentUpon>uctrlUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="uctrlVideos.resx">
+    <EmbeddedResource Include="Usercontrols\uctrlVideos.resx">
       <DependentUpon>uctrlVideos.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -395,6 +399,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner_login_light1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner_login_light2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner_logup_light1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner_logup_light2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using chatApp.Classes;
+using chatApp.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +24,8 @@ namespace chatApp
         }
 
         string constring = "Data Source=HUUNGUYEN;Initial Catalog=chatApp;Integrated Security=True;Encrypt=False";
+        dynamic mode;
+        dynamic language;
 
         // Get the last record's id of user table
         public int getLastId()
@@ -45,6 +49,46 @@ namespace chatApp
             conn.Close();
 
             return lastId;
+        }
+
+        // Check setting from database
+        private void setMode()
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter("select * from [setting]", constring);
+
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+
+            if (dt != null)
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        // Check uimode
+                        if (row["uimode"].ToString() == "light1")
+                        {
+                            mode = new lightmode1();
+                            pcBanner.Image = Resources.banner_login_light1;
+                        }
+                        else
+                        {
+                            mode = new lightmode2();
+                            pcBanner.Image = Resources.banner_login_light2;
+                        }
+
+                        // Chek language
+                        if (row["language"].ToString() == "Vietnamese")
+                        {
+                            language = new vietnamese();
+                        }
+                        else
+                        {
+                            language = new english();
+                        }
+                    }
+                }
+            }
         }
 
         // Check valid phone number
@@ -124,13 +168,13 @@ namespace chatApp
             // Check empty value of ava picture
             if (pcAva.Image == null)
             {
-                MessageBox.Show("Please select photo !");
+                MessageBox.Show(language.logupMess1);
             }
 
             // Check empty value of firstname textbox
             if (string.IsNullOrEmpty(txtFirstname.Text.Trim()))
             {
-                errorProvider1.SetError(txtFirstname, "First name is required !");
+                errorProvider1.SetError(txtFirstname, language.logupMess2);
                 return;
             }
             else
@@ -139,7 +183,7 @@ namespace chatApp
             // Check empty value of lastname textbox
             if (string.IsNullOrEmpty(txtLastname.Text.Trim()))
             {
-                errorProvider1.SetError(txtLastname, "Last name is required !");
+                errorProvider1.SetError(txtLastname, language.logupMess3);
                 return;
             }
             else
@@ -148,12 +192,12 @@ namespace chatApp
             // Check empty value of username textbox
             if (string.IsNullOrEmpty(txtUsername.Text.Trim()))
             {
-                errorProvider1.SetError(txtUsername, "Last name is required !");
+                errorProvider1.SetError(txtUsername, language.logupMess4);
                 return;
             }
             else if (!checkUsername(txtUsername.Text.Trim()))
             {
-                errorProvider1.SetError(txtUsername, "Username has existed !");
+                errorProvider1.SetError(txtUsername, language.logupMess5);
                 return;
             }
             else
@@ -162,12 +206,12 @@ namespace chatApp
             // Check empty value of phone number textbox
             if (string.IsNullOrEmpty(txtPhonenum.Text.Trim()))
             {
-                errorProvider1.SetError(txtPhonenum, "Phone number is required !");
+                errorProvider1.SetError(txtPhonenum, language.logupMess6);
                 return;
             }
             else if(!IsPhoneNumber(txtPhonenum.Text.Trim()))
             {
-                errorProvider1.SetError(txtPhonenum, "Invalid phone number !");
+                errorProvider1.SetError(txtPhonenum, language.logupMess7);
                 return;
             }
             else
@@ -176,12 +220,12 @@ namespace chatApp
             // Check empty value of email textbox
             if (string.IsNullOrEmpty(txtEmail.Text.Trim()))
             {
-                errorProvider1.SetError(txtEmail, "Email is required !");
+                errorProvider1.SetError(txtEmail, language.logupMess8);
                 return;
             }
             else if (!ValidateEmail(txtEmail.Text.Trim()))
             {
-                errorProvider1.SetError(txtEmail, "Invalid email !");
+                errorProvider1.SetError(txtEmail, language.logupMess9);
                 return;
             }
             else
@@ -190,7 +234,7 @@ namespace chatApp
             // Check empty value of password textbox
             if (string.IsNullOrEmpty(txtPass.Text.Trim()))
             {
-                errorProvider1.SetError(txtPass, "Password is required !");
+                errorProvider1.SetError(txtPass, language.logupMess10);
                 return;
             }
             else
@@ -223,7 +267,7 @@ namespace chatApp
             cmd.ExecuteNonQuery();
             con.Close();
 
-            MessageBox.Show("Sign up successfully !");
+            MessageBox.Show(language.logupMess11);
 
             // Show main Form
             this.Hide();
@@ -243,20 +287,17 @@ namespace chatApp
             }
         }
 
-        private void butLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lnkLbLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
 
             loginForm login = new loginForm();
-            //login.FormClosed += (s, args) => {
-            //    this.Close();
-            //};
             login.Show();
         }
 
         private void pcAva_MouseHover(object sender, EventArgs e)
         {
-            toolTip1.Show("Avatar", pcAva);
+            toolTip1.Show(language.tooltipAva, pcAva);
         }
 
         private void pictureBox2_MouseHover(object sender, EventArgs e)
@@ -267,6 +308,57 @@ namespace chatApp
         private void pictureBox2_MouseLeave(object sender, EventArgs e)
         {
             pictureBox2.BackColor = Color.Transparent;
+        }
+
+        // Check enter key pressed
+        private void _enterPress(Object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                bntSignup_Click(sender, e);
+        }
+
+        private void logupForm_Load(object sender, EventArgs e)
+        {
+            setMode();
+
+            // Set enter event for controls
+            txtFirstname.KeyDown += new KeyEventHandler(_enterPress);
+            txtLastname.KeyDown += new KeyEventHandler(_enterPress);
+            txtUsername.KeyDown += new KeyEventHandler(_enterPress);
+            txtEmail.KeyDown += new KeyEventHandler(_enterPress);   
+            txtPhonenum.KeyDown += new KeyEventHandler(_enterPress);
+            txtPass.KeyDown += new KeyEventHandler(_enterPress);    
+
+            // Set color of buttons
+            btnSignup.FillColor = mode.C1;
+
+            // Set color of button bodercolor 
+            txtFirstname.HoverState.BorderColor = mode.C1;
+            txtLastname.HoverState.BorderColor= mode.C1;
+            txtUsername.HoverState.BorderColor = mode.C1;
+            txtPhonenum.HoverState.BorderColor = mode.C1;
+            txtPass.HoverState.BorderColor = mode.C1;
+            txtEmail.HoverState.BorderColor = mode.C1;
+
+            txtFirstname.FocusedState.BorderColor = mode.C1;
+            txtLastname.FocusedState.BorderColor = mode.C1;
+            txtUsername.FocusedState.BorderColor = mode.C1;
+            txtPhonenum.FocusedState.BorderColor = mode.C1;
+            txtPass.FocusedState.BorderColor = mode.C1;
+            txtEmail.FocusedState.BorderColor = mode.C1;
+
+            // Set language
+            txtFirstname.PlaceholderText = language.txtFirstname;
+            txtLastname.PlaceholderText= language.txtLastname;
+            txtUsername.PlaceholderText = language.txtUsername;
+            txtPhonenum.PlaceholderText = language.txtPhone;
+            txtPass.PlaceholderText = language.txtPass;
+            txtEmail.PlaceholderText = language.txtEmail;
+
+            btnSignup.Text = language.btnSignup;
+            lbSignup.Text= language.lbSignup;
+            lbQues.Text = language.lbLogupQues;
+            lnkLbLogin.Text = language.linkLb;
         }
     }
 }

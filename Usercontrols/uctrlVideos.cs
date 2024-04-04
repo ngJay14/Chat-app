@@ -22,10 +22,17 @@ namespace chatApp
         public String VidPath
         { get { return _vidPath; } set { _vidPath = value; videoPlayer.URL = value; setVidPlayer(); } }
 
-        void setVidPlayer()
+        private void setVidPlayer()
         {
             videoPlayer.uiMode = "mini";
             videoPlayer.Ctlcontrols.stop();
+        }
+
+        public void minimize(int width, int height, string mode)
+        {
+            videoPlayer.Size = new Size(width, height);
+            videoPlayer.uiMode=mode;
+            videoPlayer.Ctlcontrols.play();
         }
     }
 }
